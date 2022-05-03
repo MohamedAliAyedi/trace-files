@@ -1,0 +1,23 @@
+
+
+
+    -h: Pour afficher le help détaillé à partir d’un fichier texte
+    -f: Pour afficher fichier
+    -d: Pour afficher dossier.
+    -a: Permet d’écrire dans le fichier date_journal la date de son dernier accès.
+    -m: Permet d’écrire dans le fichier modif_journal la date de sa dernière modification.
+    -c: Pour afficher le nombre des dossiers et des fichiers et enregistrer dans fichier count
+    -u: Pour tracer le nom de propriétaire à l’entête access de un dossier
+
+												
+
+
+
+    Exemple :
+
+	# trace.sh -f chemin..
+	# trace.sh -d chemin..
+	# trace.sh -a chemin..
+	# trace.sh -m chemin..
+	# trace.sh -c chemin..
+	# trace.sh -u chemin..
