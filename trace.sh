@@ -82,7 +82,11 @@ state() {
         folderNumbers=$(find $1 -type d | wc -l)
         FilesNumbers=$(find $1 -type f | wc -l)
         echo "Statistics of Directory $1"
-        python3 plt.py $(($folderNumbers - 1)) $FilesNumbers
+        if ! hash python; then
+            python3 plt.py $(($folderNumbers - 1)) $FilesNumbers
+        else 
+            python plt.py $(($folderNumbers - 1)) $FilesNumbers
+        fi
     else 
         echo "$1 it is not dir."
     fi
@@ -136,6 +140,8 @@ installReq() {
         fi
     else
         echo "We have done linux and windows installion python"
+        brew install python3
+        python3 -m ensurepip --upgrade
         echo "Mac still in progress"
     fi
 }
