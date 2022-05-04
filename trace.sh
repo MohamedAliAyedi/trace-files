@@ -60,7 +60,7 @@ DirectoryUser(){
 datemodif() {
     if [ -f "$1" ]; then
         dateModif=$( stat -c '%y' $1 )
-        echo $dateModif >> date_journal
+        echo "( $1 ) last modify $dateModif" >> date_journal
         echo "Date Modify has been successfully saved in modif_journal"
     else
         echo "$1 it is not file."
@@ -70,19 +70,19 @@ datemodif() {
 dateAcess() {
     if [ -f "$1" ]; then
         dateAcessf=$( stat -c '%x' $1 )
-        echo $dateAcessf >> date_journal
+        echo "( $1 ) last access $dateAcessf" >> date_journal
         echo "Date Access has been successfully saved in date_journal"
     else
         echo "$1 it is not file."
     fi
 }
 
-stat() {
+state() {
     if [ -d "$1" ]; then
         folderNumbers=$(find $1 -type d | wc -l)
         FilesNumbers=$(find $1 -type f | wc -l)
         echo "Statistics of Directory $1"
-        python plt.py $(($folderNumbers - 1)) $FilesNumbers
+        python3 plt.py $(($folderNumbers - 1)) $FilesNumbers
     else 
         echo "$1 it is not dir."
     fi
@@ -102,7 +102,7 @@ checkMachineVersion() {
 installReq() {
     checkMachineVersion
     if [[ "$machine" == "Linux" ]]; then
-        if ! hash python; then
+        if ! hash python3; then
             echo "python is not installed"
             sudo apt install python3
             sudo pip install matplotlib 
@@ -135,7 +135,8 @@ installReq() {
             fi
         fi
     else
-        echo "Bower Install python"
+        echo "We have done linux and windows installion python"
+        echo "Mac still in progress"
     fi
 }
 
@@ -160,8 +161,8 @@ else
                         m) datemodif ${OPTARG} ;;
                         c) NB ${OPTARG} ;;
                         u) DirectoryUser ${OPTARG} ;;
-                        s) stat ${OPTARG} ;;
-                        r) installReq
+                        s) state ${OPTARG} ;;
+                        r) installReq ;;
                 esac
         done
 fi
