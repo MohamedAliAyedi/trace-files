@@ -82,10 +82,10 @@ state() {
         folderNumbers=$(find $1 -type d | wc -l)
         FilesNumbers=$(find $1 -type f | wc -l)
         echo "Statistics of Directory $1"
-        if ! hash python; then
-            python3 plt.py $(($folderNumbers - 1)) $FilesNumbers
-        else 
+        if ! hash python3; then
             python plt.py $(($folderNumbers - 1)) $FilesNumbers
+        else 
+            python3 plt.py $(($folderNumbers - 1)) $FilesNumbers
         fi
     else 
         echo "$1 it is not dir."
