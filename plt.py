@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import sys
 
-labels = 'File', 'Folder'
+labels = 'Folders', 'Files'
 sizes = [sys.argv[1], sys.argv[2]]
 explode = (0, 0)
 
