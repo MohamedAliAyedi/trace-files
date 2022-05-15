@@ -10,7 +10,7 @@ This is all about bash scripting. with this script you can run commands to contr
     /( /\ )\  _\ \_/ /_       trace.sh the tools of manipulation xD
     |\_||_/| < \_   _/ >
     \______/  \|0   0|/       Version :: 0.0.2v
-      _\/_   _(_  ^  _)_      Realsed :: 2022/03/05
+      _\/_   _(_  ^  _)_      Released :: 2022/03/05
      ( () ) /`\|V"""V|/`\
        {}   \  \_____/  /
        ()   /\   )=(   /\
